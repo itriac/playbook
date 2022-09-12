@@ -6,4 +6,4 @@
   
   tasks:
   - name: Hello World!
-    shell: echo "Hi! Ansible AWX is working!"
+    shell: echo echo "Hello World" `date` by `hostname` > /tmp/hello.log
