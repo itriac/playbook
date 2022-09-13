@@ -1,12 +1,5 @@
 ---
 - hosts: all
-  tasks:
-    - name: install nginx
-      yum: pkg=nginx state=present
-    - name: start nginx
-      service: name=nginx state=started enabled=yes
- 
- - hosts: all
   become: yes
   tasks:
   - name: "apt-get update"
@@ -23,7 +16,7 @@
       state: absent
     notify: restart nginx
   handlers:
-    - name: restart nginx
-      service:
-        name: nginx
-        state: restarted
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
