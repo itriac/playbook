@@ -1,1 +1,28 @@
-
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Add elastic.co apt key
+    shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+  - name: Add elastic.co apt repository
+    shell: echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list     
+  - name: Update repo
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600      
+  - name: Install filebeat
+    apt:
+      name: ['filebeat']
+      state: latest        
+  - name: Configure filebeat defaults
+    shell: sudo update-rc.d filebeat defaults 95 10
+  - name: Configure elasticsearch ip to use when sending the data collected by the beat
+    shell: sudo sed -i 's/localhost:9200/10.194.87.117:9200/g' /etc/filebeat/filebeat.yml
+  - name: Change to true to enable filebeat input configuration
+    shell: sudo sed -i 's/enabled: false/enabled: true/g' /etc/filebeat/filebeat.yml
+    notify: restart filebeat 
+  handlers:
+    - name: Restart filebeat
+      service:
+        name: filebeat
+        state: restarted
