@@ -18,8 +18,9 @@
     
 #  - name: Configure filebeat defaults
 #    shell: sudo update-rc.d filebeat defaults 95 10
-#  - name: Configure elasticsearch ip to use when sending the data collected by the beat
-#    shell: sudo sed -i 's/localhost:9200/10.194.87.117:9200/g' /etc/filebeat/filebeat.yml
+  - name: Configure elasticsearch ip to use when sending the data collected by the beat
+    shell: sudo sed -i 's/localhost:9200/10.194.87.117:9200/g' /etc/filebeat/filebeat.yml
+    notify: Restart filebeat
 #  - name: Change to true to enable filebeat input configuration
 #    shell: sudo sed -i 's/enabled: false/enabled: true/g' /etc/filebeat/filebeat.yml
       
