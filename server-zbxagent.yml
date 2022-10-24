@@ -17,7 +17,7 @@
   - name: Configure Server
     shell: sudo sed -i 's/Server=127.0.0.1/Server={{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf   
   - name: Configure ServerActive
-    shell: sudo sed -i 's/ServerActive=127.0.0.1/Server={{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf  
+    shell: sudo sed -i 's/ServerActive=127.0.0.1/ServerActive={{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf  
   - name: Configure Hostname
     shell: sudo sed -i 's/Hostname=Zabbix server/Hostname={{ansible_hostname}}/g' /etc/zabbix/zabbix_agentd.conf        
   - name: Create script directory
