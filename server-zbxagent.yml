@@ -40,7 +40,7 @@
       dest: /etc/zabbix/script/
       owner: root
       group: root
-      mode: '0644'        
+      mode: '0755'        
     notify: Restart zbxagent
   handlers:
     - name: Restart zbxagent
