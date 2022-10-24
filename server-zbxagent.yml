@@ -19,7 +19,28 @@
   - name: Configure ServerActive
     shell: sudo sed -i 's/ServerActive=127.0.0.1/Server={{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf  
   - name: Configure Hostname
-    shell: sudo sed -i 's/Hostname=Zabbix server/Hostname={{ansible_hostname}}/g' /etc/zabbix/zabbix_agentd.conf    
+    shell: sudo sed -i 's/Hostname=Zabbix server/Hostname={{ansible_hostname}}/g' /etc/zabbix/zabbix_agentd.conf        
+  - name: Create script directory
+    file:
+      path: /etc/zabbix/script
+      state: directory
+      mode: '0755'
+      owner: root
+      group: root
+  - name: Copy userparameter conf
+    file:
+      src: userparameter_nvidia_k300.conf
+      dest: /etc/zabbix/zabbix_agentd.d/
+      owner: root
+      group: root
+      mode: '0644'      
+  - name: Copy script file
+    file:
+      src: get_gpus_info.sh
+      dest: /etc/zabbix/script/
+      owner: root
+      group: root
+      mode: '0644'        
     notify: Restart zbxagent
   handlers:
     - name: Restart zbxagent
