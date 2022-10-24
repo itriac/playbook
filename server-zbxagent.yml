@@ -28,16 +28,16 @@
       owner: root
       group: root
   - name: Copy userparameter conf
-    file:
+    copy:
       src: userparameter_nvidia_k300.conf
-      dest: /etc/zabbix/zabbix_agentd.d/
+      dest: /etc/zabbix/zabbix_agentd.d/userparameter_nvidia_k300.conf
       owner: root
       group: root
-      mode: '0644'      
+      mode: '0644'
   - name: Copy script file
-    file:
+    copy:
       src: get_gpus_info.sh
-      dest: /etc/zabbix/script/
+      dest: /etc/zabbix/script/get_gpus_info.sh
       owner: root
       group: root
       mode: '0755'        
