@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Add dashboard
+    shell: curl --header "Content-Type: application/json" --request POST --data "{\"dashboard\":$(cat dashboard.json.j2)}" --user admin:admin  http://{{ grafana_ip }}:3000/api/dashboards/db
+ 
