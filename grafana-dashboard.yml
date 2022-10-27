@@ -3,5 +3,7 @@
   become: yes
   tasks:
   - name: Add dashboard
-    shell: curl --header "Content-Type: application/json" --request POST --data "{\"dashboard\":$(cat dashboard.json.j2)}" --user admin:admin  http://localhost:3000/api/dashboards/db
- 
+    ansible.builtin.uri:
+      url: http://admin:admin@localhost:3000/api/dashboards/db
+      method: POST
+      src: "{\"dashboard\":$(cat dashboard.json.j2)}"
