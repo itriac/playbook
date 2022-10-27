@@ -19,7 +19,7 @@
       validate_certs: no
       body_format: json 
       validate_certs: false
-      body: "{"dashboard": {"id": null,"uid": null,"title": "Production Overview"}}"
+      body: "{\"dashboard\": {\"id\": null,\"uid\": null,\"title\": \"Production Overview\"}}"
       #body: "{{ lookup('ansible.builtin.file','/home/k300/dashboard.json') }}"    
       #src: /home/k300/dashboard.json
       #remote_src: yes
