@@ -5,7 +5,7 @@
   - name: Copy dashboard.json
     template:
       src: dashboard.json.j2
-      dest: /home/k300
+      dest: /home/k300/dashboard.json
       owner: root
       group: root
       mode: '0644'
