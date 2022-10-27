@@ -21,7 +21,7 @@
       method: POST
       body_format: json 
       validate_certs: false
-      body: "{{ dashboard_json }}"
+      body: "{{ dashboard_json|to_json }}"
       #body: "{\"dashboard\": {\"id\": null,\"uid\": null,\"title\": \"Production Overview\"}}"
       #src: /home/k300/dashboard.json
       #remote_src: yes
