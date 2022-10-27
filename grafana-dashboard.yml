@@ -17,7 +17,9 @@
       force_basic_auth: yes
       method: POST
       validate_certs: no
+      body_format: json 
+      validate_certs: false
+      body: "{"dashboard": {"id": null,"uid": null,"title": "Production Overview"}}"
       #body: "{{ lookup('ansible.builtin.file','/home/k300/dashboard.json') }}"    
-      #body_format: json
-      src: /home/k300/dashboard.json
-      remote_src: yes
+      #src: /home/k300/dashboard.json
+      #remote_src: yes
