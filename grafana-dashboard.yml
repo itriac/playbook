@@ -9,12 +9,12 @@
       owner: root
       group: root
       mode: '0644'
-  - name: Read JSON file
-    shell: cat /home/k300/dashboard.json
-    register: dashboard_json
-  - name: Print dashboard_json
-    debug:
-      msg: "{{ dashboard_json }}"
+#  - name: Read JSON file
+#    shell: cat /home/k300/dashboard.json
+#    register: dashboard_json
+#  - name: Print dashboard_json
+#    debug:
+#      msg: "{{ dashboard_json }}"
   - name: Add dashboard
     ansible.builtin.uri:
       url: http://localhost:3000/api/dashboards/db
