@@ -22,7 +22,7 @@
       password: "admin"
       force_basic_auth: yes
       method: POST
-      #body_format: json 
+      body_format: json 
       validate_certs: false
       #body: "{{ dashboard_json.stdout }}"
       #body: "{\"dashboard\": {\"id\": null,\"uid\": null,\"title\": \"TEST\"}}"
