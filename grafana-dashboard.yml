@@ -16,5 +16,7 @@
       password: "admin"
       force_basic_auth: yes
       method: POST
-      src: /home/k300/dashboard.json
-      remote_src: yes
+      body: "{{ lookup('ansible.builtin.file','/home/k300/dashboard.json') }}"    
+      body_format: json
+      #src: /home/k300/dashboard.json
+      #remote_src: yes
