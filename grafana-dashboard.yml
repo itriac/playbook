@@ -2,9 +2,15 @@
 - hosts: all
   become: yes
   tasks:
+  - name: Copy dashboard.json
+    template:
+      src: dashboard.json.j2
+      dest: /home/k300
+      owner: root
+      group: root
+      mode: '0644'
   - name: Add dashboard
     ansible.builtin.uri:
       url: http://admin:admin@localhost:3000/api/dashboards/db
       method: POST
-      src: dashboard.json.j2
-      remote_src: yes
+      src: /home/k300/dashboard.json
