@@ -14,3 +14,4 @@
       url: http://admin:admin@localhost:3000/api/dashboards/db
       method: POST
       src: /home/k300/dashboard.json
+      remote_src: yes
