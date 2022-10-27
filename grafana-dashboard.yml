@@ -10,8 +10,8 @@
       group: root
       mode: '0644'
   - name: Read JSON file
-      shell: cat /home/k300/dashboard.json
-      register: dashboard_json
+    shell: cat /home/k300/dashboard.json
+    register: dashboard_json
   - name: Add dashboard
     ansible.builtin.uri:
       url: http://localhost:3000/api/dashboards/db
@@ -21,8 +21,7 @@
       method: POST
       body_format: json 
       validate_certs: false
-      body: "{{ dashboard_json') }}"
-      #body: "{{ lookup('file','/home/k300/dashboard.json') }}"
+      body: "{{ dashboard_json }}"
       #body: "{\"dashboard\": {\"id\": null,\"uid\": null,\"title\": \"Production Overview\"}}"
       #src: /home/k300/dashboard.json
       #remote_src: yes
