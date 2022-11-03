@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Copy hostgroup-add-tank.json
+    template:
+      src: hostgroup-add-tank.json.j2
+      dest: /home/k300/hostgroup-add-tank.json
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Add Host Group
+    ansible.builtin.uri:
+      url: http://localhost/zabbix/api_jsonrpc.php
+      #user: "admin"
+      #password: "admin"
+      #force_basic_auth: yes
+      method: POST
+      body_format: json 
+      validate_certs: false
+      #body: "{{ dashboard_json.stdout }}"
+      #body: "{\"dashboard\": {\"id\": null,\"uid\": null,\"title\": \"TEST\"}}"
+      src: /home/k300/hostgroup-add-tank.json
+      remote_src: yes
