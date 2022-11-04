@@ -20,8 +20,8 @@
       return_content: yes
       content: response_json
   - name: Print Host ID
-      debug:
-        msg: "{{ response_json }}"
+    debug:
+      msg: "{{ response_json }}"
 #  - name: Copy hostgroup-massadd.json
 #    template:
 #      src: hostgroup-massadd.json.j2
