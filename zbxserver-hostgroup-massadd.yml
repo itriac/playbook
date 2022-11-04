@@ -17,11 +17,10 @@
       validate_certs: false
       src: /home/k300/host-get.json
       remote_src: yes
-      return_content: yes
-    content: response_result
-  - name: Print Host ID
+#      return_content: yes
+    register: response_result
     debug:
-      msg: "{{ response_result }}"
+      msg: "{{ response_result }}" 
 #  - name: Copy hostgroup-massadd.json
 #    template:
 #      src: hostgroup-massadd.json.j2
