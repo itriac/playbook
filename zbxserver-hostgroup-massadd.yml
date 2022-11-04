@@ -20,10 +20,10 @@
     register: response_message    
   - name: Set Host ID
     set_fact:
-      zbxserver_host_id: "{{ response_message['json']['result'] }}"
+      zbxserver_host_id: "{{ response_message['json']['result'][0]['hostid'] }}"
   - name: Print Host ID
     debug:
-      msg: "@@ {{ zbxserver_host_id }}"
+      msg: "{{ zbxserver_host_id }}"
     
 #  - name: Copy hostgroup-massadd.json
 #    template:
