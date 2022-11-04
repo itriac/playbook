@@ -24,7 +24,28 @@
   - name: Print Host ID
     debug:
       msg: "{{ zbxserver_host_name }} Host ID: {{ zbxserver_host_id }}"
-    
+  - name: Copy hostgroup-get.json
+    template:
+      src: hostgroup-get.json.j2
+      dest: /home/k300/hostgroup-get.json
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Get HostGroup ID
+    ansible.builtin.uri:
+      url: http://localhost/zabbix/api_jsonrpc.php
+      method: POST
+      body_format: json 
+      validate_certs: false
+      src: /home/k300/hostgroup-get.json
+      remote_src: yes
+    register: response_message_2    
+  - name: Set HostGroup ID
+    set_fact:
+      zbxserver_hostgroup_id: "{{ response_message_2['json']['result'][0]['groupid'] }}"
+  - name: Print HostGroup ID
+    debug:
+      msg: "{{ zbxserver_hostgroup_name }} HostGroup ID: {{ zbxserver_hostgroup_id }}"  
 #  - name: Copy hostgroup-massadd.json
 #    template:
 #      src: hostgroup-massadd.json.j2
