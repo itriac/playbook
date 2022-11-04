@@ -18,19 +18,22 @@
       src: /home/k300/host-get.json
       remote_src: yes
       return_content: yes
-
-  - name: Copy hostgroup-massadd.json
-    template:
-      src: hostgroup-massadd.json.j2
-      dest: /home/k300/hostgroup-massadd.json
-      owner: root
-      group: root
-      mode: '0644'
-  - name: Add Host into Host Group
-    ansible.builtin.uri:
-      url: http://localhost/zabbix/api_jsonrpc.php
-      method: POST
-      body_format: json 
-      validate_certs: false
-      src: /home/k300/hostgroup-massadd.json
-      remote_src: yes
+      content: response_json
+  - name: Print Host ID
+      debug:
+        msg: "{{ response_json }}"
+#  - name: Copy hostgroup-massadd.json
+#    template:
+#      src: hostgroup-massadd.json.j2
+#      dest: /home/k300/hostgroup-massadd.json
+#      owner: root
+#      group: root
+#      mode: '0644'
+#  - name: Add Host into Host Group
+#    ansible.builtin.uri:
+#      url: http://localhost/zabbix/api_jsonrpc.php
+#      method: POST
+#      body_format: json 
+#      validate_certs: false
+#      src: /home/k300/hostgroup-massadd.json
+#      remote_src: yes
