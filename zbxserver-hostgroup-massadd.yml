@@ -21,6 +21,7 @@
   - name: Set Host ID
     set_fact:
       zbxserver_host_id: "{{ response_message['json']['result'] }}"
+  - name: Print Host ID
     debug:
       msg: "{{ zbxserver_host_id }}"
     
