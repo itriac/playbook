@@ -18,10 +18,10 @@
       src: /home/k300/host-get.json
       remote_src: yes
       return_content: yes
-      content: response_json
+      resgister: response_result
   - name: Print Host ID
     debug:
-      msg: "{{ response_json }}"
+      msg: "{{ response_result }}"
 #  - name: Copy hostgroup-massadd.json
 #    template:
 #      src: hostgroup-massadd.json.j2
