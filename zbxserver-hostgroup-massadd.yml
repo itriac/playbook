@@ -23,7 +23,7 @@
       zbxserver_host_id: "{{ response_message['json']['result'] }}"
   - name: Print Host ID
     debug:
-      msg: "{{ zbxserver_host_id }}"
+      msg: "@@ {{ zbxserver_host_id }}"
     
 #  - name: Copy hostgroup-massadd.json
 #    template:
