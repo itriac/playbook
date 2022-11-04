@@ -46,18 +46,18 @@
   - name: Print HostGroup ID
     debug:
       msg: "{{ zbxserver_hostgroup_name }} HostGroup ID: {{ zbxserver_hostgroup_id }}"  
-#  - name: Copy hostgroup-massadd.json
-#    template:
-#      src: hostgroup-massadd.json.j2
-#      dest: /home/k300/hostgroup-massadd.json
-#      owner: root
-#      group: root
-#      mode: '0644'
-#  - name: Add Host into Host Group
-#    ansible.builtin.uri:
-#      url: http://localhost/zabbix/api_jsonrpc.php
-#      method: POST
-#      body_format: json 
-#      validate_certs: false
-#      src: /home/k300/hostgroup-massadd.json
-#      remote_src: yes
+  - name: Copy hostgroup-massadd.json
+    template:
+      src: hostgroup-massadd.json.j2
+      dest: /home/k300/hostgroup-massadd.json
+      owner: root
+      group: root
+      mode: '0644'
+  - name: Add Host into Host Group
+    ansible.builtin.uri:
+      url: http://localhost/zabbix/api_jsonrpc.php
+      method: POST
+      body_format: json 
+      validate_certs: false
+      src: /home/k300/hostgroup-massadd.json
+      remote_src: yes
