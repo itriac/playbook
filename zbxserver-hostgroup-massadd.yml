@@ -17,11 +17,12 @@
       validate_certs: false
       src: /home/k300/host-get.json
       remote_src: yes
-#      return_content: yes
-    register: response_result
+    register: response_message
+    vars:
+      zbxserver_host_id: "{{ response_message['json']['result'] }}"
   - name: Print Host ID
     debug:
-      msg: "{{ response_result }}"
+      msg: "{{ zbxserver_host_id }}"
     
 #  - name: Copy hostgroup-massadd.json
 #    template:
