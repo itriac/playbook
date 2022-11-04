@@ -1,0 +1,18 @@
+{
+    "jsonrpc": "2.0",
+    "method": "hostgroup.massadd",
+    "params": {
+        "groups": [
+            {
+                "groupid": "{{ zbxserver_hostgroup_id }}"
+            }
+        ],
+        "hosts": [
+            {
+                "hostid": "{{ zbxserver_host_id }}"
+            }
+        ]
+    },
+    "auth": "{{ zbxserver_auth_token }}",
+    "id": 1
+}
