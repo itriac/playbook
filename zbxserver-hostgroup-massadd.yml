@@ -18,7 +18,7 @@
       src: /home/k300/host-get.json
       remote_src: yes
       return_content: yes
-      resgister: response_result
+      register: response_result
   - name: Print Host ID
     debug:
       msg: "{{ response_result }}"
