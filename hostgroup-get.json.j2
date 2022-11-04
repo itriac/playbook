@@ -1,0 +1,14 @@
+{
+    "jsonrpc": "2.0",
+    "method": "hostgroup.get",
+    "params": {
+        "output": "extend",
+        "filter": {
+            "name": [
+                "{{ zbxserver_hostgroup_name }}"
+            ]
+        }
+    },
+    "auth": "{{ zbxserver_auth_token }}",
+    "id": 1
+}
