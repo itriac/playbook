@@ -22,7 +22,7 @@
     shell: sudo sed -i 's/^Hostname=Zabbix server/Hostname={{ansible_hostname}}/g' /etc/zabbix/zabbix_agentd.conf        
   - name: Create script directory
     file:
-      path: /etc/zabbix/script
+      path: /etc/zabbix/scripts
       state: directory
       mode: '0755'
       owner: root
@@ -37,7 +37,7 @@
   - name: Copy script file
     copy:
       src: get_gpus_info.sh
-      dest: /etc/zabbix/script/get_gpus_info.sh
+      dest: /etc/zabbix/scripts/get_gpus_info.sh
       owner: root
       group: root
       mode: '0755'        
