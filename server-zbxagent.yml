@@ -42,8 +42,8 @@
       group: root
       mode: '0755'        
     notify: Restart zbxagent
-  - name: Reboot
-    shell: sudo reboot now
+#  - name: Reboot
+#    shell: sudo reboot now
   handlers:
     - name: Restart zbxagent
       service:
