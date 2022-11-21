@@ -16,8 +16,8 @@
       state: latest
   - name: Configure filebeat defaults
     shell: sudo update-rc.d filebeat defaults 95 10
-  - name: Configure auth log
-    shell: sudo sed -i 's/*.log/auth.log/g' /etc/filebeat/filebeat.yml
+  - name: Configure syslog
+    shell: sudo sed -i 's/*.log/syslog/g' /etc/filebeat/filebeat.yml
   - name: Configure elasticsearch ip to use when sending the data collected by the beat
     shell: sudo sed -i 's/localhost:9200/{{elasticsearch_ip}}:9200/g' /etc/filebeat/filebeat.yml   
   - name: Configure https
