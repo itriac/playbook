@@ -4,8 +4,8 @@
   tasks: 
   - name: Configure Server
     shell: sudo sed -i '/^Server=/ s/$/,{{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf   
-  - name: Configure ServerActive
-    shell: sudo sed -i '/^ServerActive=/ s/$/,{{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf  
+#  - name: Configure ServerActive
+#    shell: sudo sed -i '/^ServerActive=/ s/$/,{{zbxserver_ip}}/g' /etc/zabbix/zabbix_agentd.conf  
   - name: Configure Hostname
     shell: sudo sed -i 's/^Hostname=Zabbix server/Hostname={{ansible_hostname}}/g' /etc/zabbix/zabbix_agentd.conf                 
     notify: Restart zbxagent
