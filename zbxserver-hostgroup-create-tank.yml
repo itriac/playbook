@@ -5,7 +5,7 @@
   - name: Copy hostgroup-create-tank-server.json
     template:
       src: hostgroup-create-tank-server.json.j2
-      dest: /home/k300/hostgroup-create-tank-server.json
+      dest: /home/user/hostgroup-create-tank-server.json
       owner: root
       group: root
       mode: '0644'
@@ -15,12 +15,12 @@
       method: POST
       body_format: json 
       validate_certs: false
-      src: /home/k300/hostgroup-create-tank-server.json
+      src: /home/user/hostgroup-create-tank-server.json
       remote_src: yes
   - name: Copy hostgroup-create-tank-switch.json
     template:
       src: hostgroup-create-tank-switch.json.j2
-      dest: /home/k300/hostgroup-create-tank-switch.json
+      dest: /home/user/hostgroup-create-tank-switch.json
       owner: root
       group: root
       mode: '0644'
@@ -30,5 +30,5 @@
       method: POST
       body_format: json 
       validate_certs: false
-      src: /home/k300/hostgroup-create-tank-switch.json
+      src: /home/user/hostgroup-create-tank-switch.json
       remote_src: yes   
